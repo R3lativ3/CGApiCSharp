@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/josebarrundia/Projects/CGApi/CGApi/CGApi.csproj": {}
+    "C:\\Users\\kevin\\Desktop\\CG\\API_dotnet\\CGApiCSharp\\CGApi\\CGApi.csproj": {}
   },
   "projects": {
-    "/Users/josebarrundia/Projects/CGApi/CGApi/CGApi.csproj": {
+    "C:\\Users\\kevin\\Desktop\\CG\\API_dotnet\\CGApiCSharp\\CGApi\\CGApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/josebarrundia/Projects/CGApi/CGApi/CGApi.csproj",
+        "projectUniqueName": "C:\\Users\\kevin\\Desktop\\CG\\API_dotnet\\CGApiCSharp\\CGApi\\CGApi.csproj",
         "projectName": "CGApi",
-        "projectPath": "/Users/josebarrundia/Projects/CGApi/CGApi/CGApi.csproj",
-        "packagesPath": "/Users/josebarrundia/.nuget/packages/",
-        "outputPath": "/Users/josebarrundia/Projects/CGApi/CGApi/obj/",
+        "projectPath": "C:\\Users\\kevin\\Desktop\\CG\\API_dotnet\\CGApiCSharp\\CGApi\\CGApi.csproj",
+        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kevin\\Desktop\\CG\\API_dotnet\\CGApiCSharp\\CGApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/josebarrundia/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,20 +73,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.osx-x64",
-              "version": "[5.0.17, 5.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -88,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
