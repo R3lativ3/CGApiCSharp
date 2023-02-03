@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using CGApi.Common;
+using CGApi.Models;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -34,6 +39,28 @@ namespace CGApi.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("lel")]
+        public ActionResult<IEnumerable<Lel>> GetLel()
+        {
+            try
+            {
+                string query = @"select * from lel";
+                using (IDbConnection conn = new SqlConnection(Global.ConnectionString))
+                {
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+                    var ambientes = conn.Query<Lel>(query);
+                    return Ok(ambientes);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message, null, 500);
+            }
         }
     }
 }

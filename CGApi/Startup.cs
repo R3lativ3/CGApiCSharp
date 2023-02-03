@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CGApi.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,6 +17,8 @@ namespace CGApi
 {
     public class Startup
     {
+        private readonly string _Cors = "Cors";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +29,13 @@ namespace CGApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            //DATABASE CONNECTION
+            services.AddSingleton<IConfiguration>(Configuration);
+            Global.ConnectionString = Configuration.GetConnectionString("Development");
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -47,6 +57,8 @@ namespace CGApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(_Cors);
 
             app.UseAuthorization();
 
