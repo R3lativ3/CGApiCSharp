@@ -1,29 +1,29 @@
 ﻿<Properties StartupConfiguration="{DA364787-72D6-4612-9E42-BB0FD14C4D3F}|Default">
-  <MonoDevelop.Ide.ItemProperties.CGApi PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="CGApi/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CGApi/EmptyClass.cs">
     <Files>
-      <File FileName="CGApi/appsettings.json" Line="11" Column="79" />
-      <File FileName="CGApi/Startup.cs" Line="37" Column="85" />
-      <File FileName="CGApi/Controllers/WeatherForecastController.cs" Line="49" Column="48" />
-      <File FileName="CGApi/Models/Lel.cs" Line="6" Column="30" />
+      <File FileName="CGApi/appsettings.json" />
+      <File FileName="CGApi/Controllers/DepartamentosController.cs" Line="14" Column="6" />
+      <File FileName="CGApi/Controllers/UsuariosController.cs" Line="1" Column="1" />
+      <File FileName="CGApi/Controllers/WeatherForecastController.cs" Line="55" Column="22" />
+      <File FileName="CGApi/EmptyClass.cs" Line="8" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CGApi" expanded="True">
-            <Node name="CGApi" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
+            <Node name="CGApi" expanded="True" selected="True">
+              <Node name="Dependencies" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CGApi PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

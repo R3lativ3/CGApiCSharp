@@ -34,6 +34,11 @@ namespace CGApi
 
             //DATABASE CONNECTION
             services.AddSingleton<IConfiguration>(Configuration);
+
+
+            // DEFINIR DEPENDENCIA.
+            services.AddScoped<IUsuarioDataService, UsuarioDataService>();
+
             Global.ConnectionString = Configuration.GetConnectionString("Development");
 
 

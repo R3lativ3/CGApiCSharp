@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using CGApi.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CGApi.Controllers
 {
@@ -6,6 +8,25 @@ namespace CGApi.Controllers
     [ApiController]
     public class UsuariosController: ControllerBase
     {
+        IUsuarioDataService _usuarioDataService;
 
+        public UsuariosController(IUsuarioDataService usuarioDataService)
+        {
+            _usuarioDataService = usuarioDataService;
+        }
+
+        // ENDPOINT
+        [HttpGet]
+        public ActionResult<List<Usuarios>> GetAll()
+        {
+            var respuesta = _usuarioDataService.GetAll();
+
+            if(respuesta is null)
+            {
+                NotFound(respuesta);
+            }
+
+            return respuesta;
+        }
     }
 }
