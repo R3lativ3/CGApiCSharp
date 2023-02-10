@@ -23,7 +23,7 @@ namespace CGApi.Controllers
 
             if(respuesta is null)
             {
-                NotFound(respuesta);
+                return NotFound(respuesta);
             }
 
             return respuesta;
