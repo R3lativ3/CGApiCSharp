@@ -7,6 +7,6 @@
         public float montoConInteres { get; set; }
         public float porcentajeInteres { get; set; }
         public int plazoDias { get; set; }
-        public float lcobroDiario { get; set; }
+        public float cobroDiario { get; set; }
     }
 }

@@ -34,13 +34,13 @@ namespace CGApi
             try
             {
                 string query = @"select * from Usuarios";
-                using IDbConnection conn = new SqlConnection(Global.ConnectionString);        
+                using IDbConnection conn = new SqlConnection(Global.ConnectionString);
                 if (conn.State == ConnectionState.Closed)
                     conn.Open();
-                   
+
                 var result = conn.Query<Usuarios>(query);
                 return result.AsList();
-                
+
             }
             catch (Exception)
             {

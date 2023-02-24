@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CGApi.Common;
+using CGApi.IServices;
+using CGApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +40,7 @@ namespace CGApi
 
             // DEFINIR DEPENDENCIA.
             services.AddScoped<IUsuarioDataService, UsuarioDataService>();
+            services.AddScoped<IUsuariosDataService, UsuariosDataService>();
 
             Global.ConnectionString = Configuration.GetConnectionString("Development");
 
