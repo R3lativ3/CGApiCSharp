@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using CGApi.IServices;
+using CGApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CGApi.Controllers
@@ -7,10 +10,31 @@ namespace CGApi.Controllers
     [Route("api/clientes")]
     [ApiController]
     public class ClientesController : ControllerBase
-	{
-		public ClientesController()
-		{
-		}
+    {
+        IClientesDataService _clientesDataService;
+
+        public ClientesController(IClientesDataService clientesDataService)
+        {
+            _clientesDataService = clientesDataService;
+        }
+
+        [HttpGet]
+        public ActionResult <List<Clientes>> GetAll()
+        {
+            try
+            {
+                var respuesta = _clientesDataService.GetAll();
+                if(respuesta is null)
+                {
+                    return NotFound(respuesta);
+                }
+
+                return Ok(respuesta);
+            } catch (Exception ex)
+            {
+                return Problem(ex.Message, null, 500);
+            }
+        }
 
         // endpoints, peticion GET sin subruta (es decir, tomara el nombre del recurso [linea 7])
         [HttpGet]

@@ -1,4 +1,4 @@
-﻿}using CGApi.Models;
+﻿using CGApi.Models;
 using System.Collections.Generic;
 
 namespace CGApi.IServices

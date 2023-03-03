@@ -41,6 +41,18 @@ namespace CGApi
             // DEFINIR DEPENDENCIA.
             services.AddScoped<IUsuarioDataService, UsuarioDataService>();
             services.AddScoped<IUsuariosDataService, UsuariosDataService>();
+            services.AddScoped<IClientesDataService, ClientesDataService>();
+            services.AddScoped<ICobradoresDataService, CobradoresDataService>();
+            services.AddScoped<ICobrosPrestamosDataService, CobrosPrestamosDataService>();
+            services.AddScoped<IDepartamentosDataService, DepartamentosDataService>();
+            services.AddScoped<IMontosPrestamosDataService, MontosPrestamosDataService>();
+            services.AddScoped<IMunicipiosDataService, MunicipiosDataService>();
+            services.AddScoped<IPrestamosDataService, PrestamosDataService>();
+            services.AddScoped<IRutasCobradoresDataService, RutasCobradoresDataService>();
+            services.AddScoped<IRutasDataService, RutasDataService>();
+            services.AddScoped<ISedesGoldDataService, SedesGoldDataService>();
+            services.AddScoped<ITiposPrestamosDataService, TiposPrestamosDataService>();
+            services.AddScoped<ITiposUsuariosDataService, TiposUsuariosDataService>();
 
             Global.ConnectionString = Configuration.GetConnectionString("Development");
 

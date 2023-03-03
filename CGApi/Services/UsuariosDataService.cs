@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Dapper;
 using CGApi.IServices;
+using System;
 
 namespace CGApi.Services
 {
@@ -44,9 +45,9 @@ namespace CGApi.Services
                 return result.AsList();
                     
             }
-            catch
+            catch(Exception)
             {
-                return null;
+                throw;
             }
         }
 
