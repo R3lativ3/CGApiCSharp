@@ -10,7 +10,7 @@ namespace CGApi.Controllers
     [ApiController]
     public class MontosPrestamosController: ControllerBase
     {
-        IMontosPrestamosDataService _montosPrestamosDataService;
+        private readonly IMontosPrestamosDataService _montosPrestamosDataService;
 
         public MontosPrestamosController(IMontosPrestamosDataService montosPrestamosDataService)
         {
@@ -29,6 +29,21 @@ namespace CGApi.Controllers
 
                 return Ok(respuesta);
             }catch (Exception ex)
+            {
+                return Problem(ex.Message, null, 500);
+            }
+        }
+
+        [HttpGet("{id:int}")]
+        public ActionResult<MontosPrestamos> GetMontoPrestamo(int id)
+        {
+            try
+            {
+                var respuesta = _montosPrestamosDataService.GetMontoPrestamo(id);
+                if(respuesta is null) return NotFound(respuesta);
+
+                return Ok(respuesta);
+            }catch(Exception ex)
             {
                 return Problem(ex.Message, null, 500);
             }

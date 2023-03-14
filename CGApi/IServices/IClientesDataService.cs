@@ -6,5 +6,6 @@ namespace CGApi.IServices
     public interface IClientesDataService
     {
         public List<Clientes> GetAll();
+        public Clientes GetCliente(int id);
     }
 }

@@ -6,5 +6,6 @@ namespace CGApi.IServices
     public interface ICobradoresDataService
     {
         public List<Cobradores> GetAll();
+        public Cobradores GetCobrador(int id);
     }
 }

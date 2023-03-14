@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace CGApi.Services
 {
@@ -26,6 +27,17 @@ namespace CGApi.Services
             {
                 throw;
             }
+        }
+
+        public Clientes GetCliente(int idCliente)
+        {
+            string cliente = "select * from Clientes where id = @id;";
+            using IDbConnection conn = new SqlConnection(Global.ConnectionString);
+                if(conn.State == ConnectionState.Closed)
+                    conn.Open();
+
+            var result = conn.QueryFirst<Clientes>(cliente, new {id = idCliente});
+            return result;
         }
     }
 }

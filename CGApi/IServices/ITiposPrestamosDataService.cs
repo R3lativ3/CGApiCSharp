@@ -6,5 +6,6 @@ namespace CGApi.IServices
     public interface ITiposPrestamosDataService
     {
         public List<TiposPrestamos> GetAll();
+        public TiposPrestamos GetTipoPrestamo(int id);
     }
 }

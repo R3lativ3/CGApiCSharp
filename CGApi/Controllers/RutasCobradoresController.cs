@@ -34,5 +34,20 @@ namespace CGApi.Controllers
                 return Problem(ex.Message, null, 500);
             }
         }
+
+        [HttpGet("{id:int}")]
+        public ActionResult<RutasCobradores> GetRutaCobrador(int id)
+        {
+            try
+            {
+                var respuesta = _rutasCobradoresDataService.GetRutaCobrador(id);
+                if(respuesta == null) return NotFound(respuesta);
+
+                return Ok(respuesta);
+            }catch (Exception ex)
+            {
+                return Problem(ex.Message, null, 500);
+            }
+        }
     }
 }

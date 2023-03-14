@@ -28,5 +28,21 @@ namespace CGApi.Services
                 throw;
             }
         }
+
+        public Prestamos GetPrestamo(int Id)
+        {
+            try
+            {
+                string query = "select * from Prestamos where id = @id;";
+                using IDbConnection conn = new SqlConnection(Global.ConnectionString);
+                    if(conn.State == ConnectionState.Closed) conn.Open();
+
+                var result = conn.QueryFirst<Prestamos>(query, new {id = Id});
+                return result;
+            }catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -28,5 +28,21 @@ namespace CGApi.Services
                 throw;
             }
         }
+
+        public SedesGold GetSede(int Id)
+        {
+            try
+            {
+                string query = "select * from SedesGold where id = @id;";
+                using IDbConnection conn = new SqlConnection(Global.ConnectionString);
+                    if (conn.State == ConnectionState.Closed) conn.Open();
+
+                var result = conn.QueryFirst<SedesGold>(query, new {id = Id});
+                return result;
+            }catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

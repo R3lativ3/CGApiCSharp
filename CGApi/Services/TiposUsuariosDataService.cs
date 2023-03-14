@@ -28,5 +28,23 @@ namespace CGApi.Services
                 throw;
             }
         }
+
+        public TiposUsuarios GetTipoUsuario(int Id)
+        {
+            try
+            {
+                string query = "select * from TiposUsuarios where id = @id;";
+                using IDbConnection conn = new SqlConnection(Global.ConnectionString);
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+
+                var result = conn.QueryFirst<TiposUsuarios>(query, new {id = Id});
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

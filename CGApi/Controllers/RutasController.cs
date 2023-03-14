@@ -34,5 +34,20 @@ namespace CGApi.Controllers
                 return Problem(ex.Message, null, 500);
             }
         }
+
+        [HttpGet("{id:int}")]
+        public ActionResult<Rutas> GetRuta(int id)
+        {
+            try
+            {
+                var respuesta = _rutasDataService.GetRuta(id);
+                if(respuesta is null) return NotFound(respuesta);
+
+                return Ok(respuesta);
+            }catch (Exception ex)
+            {
+                return Problem(ex.Message, null, 500);
+            }
+        }
     }
 }

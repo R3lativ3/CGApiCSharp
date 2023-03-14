@@ -30,5 +30,24 @@ namespace CGApi.Services
                 throw;
             }
         }
+
+        public Departamentos GetDepartamento(int Id)
+        {
+            try
+            {
+                string query = "select * from Departamentos where id = @id;";
+                using IDbConnection conn = new SqlConnection(Global.ConnectionString);
+                    if(conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                var result = conn.QueryFirst<Departamentos>(query, new {id = Id});
+                return result;
+            }catch(Exception)
+            {
+                throw;
+            }
+        }
     }
 }

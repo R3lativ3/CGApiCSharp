@@ -51,6 +51,23 @@ namespace CGApi.Services
             }
         }
 
+        public Usuarios GetUsuario(int Id)
+        {
+            try
+            {
+                string usuario = "select * from Usuarios where id = @id;";
+                using IDbConnection conn = new SqlConnection(Global.ConnectionString);
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+
+                var result = conn.QueryFirst<Usuarios>(usuario, new { id = Id });
+                return result;
+            }catch(Exception)
+            {
+                throw;
+            }            
+        }
+
         public void Update(Usuarios usuarios)
         {
             throw new System.NotImplementedException();

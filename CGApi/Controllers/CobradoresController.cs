@@ -1,8 +1,12 @@
-﻿using CGApi.IServices;
+﻿using CGApi.Common;
+using CGApi.IServices;
 using CGApi.Models;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CGApi.Controllers
 {
@@ -27,6 +31,22 @@ namespace CGApi.Controllers
                 {
                     return NotFound(respuesta);
                 }
+
+                return Ok(respuesta);
+            }catch (Exception ex)
+            {
+                return Problem(ex.Message, null, 500);
+            }
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<Cobradores> GetCobrador(int id) {
+            try
+            {
+                var respuesta = _cobradoresDataService.GetCobrador(id);
+
+                if(respuesta is null)
+                    return NotFound(respuesta);
 
                 return Ok(respuesta);
             }catch (Exception ex)

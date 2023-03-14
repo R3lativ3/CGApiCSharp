@@ -29,5 +29,23 @@ namespace CGApi.Services
                 throw;
             }
         }
+
+        public Cobradores GetCobrador(int Id)
+        {
+            try
+            {
+                string cobrador = "select * from Cobradores where id = @id;";
+                using IDbConnection conn = new SqlConnection(Global.ConnectionString);
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+
+                var result = conn.QueryFirst<Cobradores>(cobrador, new { id = Id });
+
+                return result;
+            }catch(Exception)
+            {
+                throw;
+            }
+        }
     }
 }

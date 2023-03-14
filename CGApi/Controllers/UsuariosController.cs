@@ -37,5 +37,23 @@ namespace CGApi.Controllers
             }
             
         }
+
+        [HttpGet("{id:int}")]
+        public ActionResult<Usuarios> GetUsuario(int id)
+        {
+            try
+            {
+                var respuesta = _usuariosDataService.GetUsuario(id);
+                if(respuesta is null)
+                {
+                    return NotFound(respuesta);
+                }
+
+                return Ok(respuesta);
+            }catch(Exception ex)
+            {
+                return Problem(ex.Message, null, 500);
+            }
+        }
     }
 }

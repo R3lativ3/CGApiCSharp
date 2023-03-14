@@ -6,5 +6,6 @@ namespace CGApi.IServices
     public interface ITiposUsuariosDataService
     {
         public List<TiposUsuarios> GetAll();
+        public TiposUsuarios GetTipoUsuario(int id);
     }
 }

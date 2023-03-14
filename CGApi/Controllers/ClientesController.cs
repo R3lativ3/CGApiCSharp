@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using CGApi.IServices;
 using CGApi.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +21,7 @@ namespace CGApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult <List<Clientes>> GetAll()
+        public ActionResult<List<Clientes>> GetAll()
         {
             try
             {
@@ -36,10 +38,28 @@ namespace CGApi.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Clientes> GetCliente(int id) {
+            try
+            {
+                var cliente = _clientesDataService.GetCliente(id);
+                if(cliente is null)
+                {
+                    return NotFound(cliente);
+                }
+
+                return Ok(cliente);
+            }catch(Exception ex)
+            {
+                return Problem(ex.Message, null, 500);
+            }
+        }
+
         // endpoints, peticion GET sin subruta (es decir, tomara el nombre del recurso [linea 7])
-        [HttpGet]
+
         // Retorna un ActionResult (para manejar estado de las peticiones, 200, 400, etc)
         // y Dentro del ActionResult el contenido que se va a obtener (la data en si), puede ser int, float, string, incluso una clase.
+        [HttpGet("a")]
         public ActionResult<string> Hi()
         {
             return Ok("Clientes");

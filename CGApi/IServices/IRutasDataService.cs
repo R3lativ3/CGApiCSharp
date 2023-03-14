@@ -6,5 +6,6 @@ namespace CGApi.IServices
     public interface IRutasDataService
     {
         public List<Rutas> GetAll();
+        public Rutas GetRuta(int id);
     }
 }

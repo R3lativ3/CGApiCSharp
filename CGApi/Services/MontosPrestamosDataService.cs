@@ -27,5 +27,23 @@ namespace CGApi.Services
                 throw;
             }
         }
+
+        public MontosPrestamos GetMontoPrestamo(int Id)
+        {
+            try
+            {
+                string query = "select * from MontosPrestamos where id = @id;";
+                using IDbConnection conn = new SqlConnection(Global.ConnectionString);
+                    if(conn.State == ConnectionState.Closed)
+                        conn.Open();
+
+                var result = conn.QueryFirst<MontosPrestamos>(query, new {id = Id});
+
+                return result;
+            }catch(Exception)
+            {
+                throw;
+            }
+        }
     }
 }
